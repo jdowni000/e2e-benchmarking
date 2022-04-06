@@ -67,7 +67,7 @@ run_benchmark() {
     done
     remove_cli
   fi
-  local benchmark_name=$(cat ${1} | python -c 'import yaml; import sys; print(yaml.safe_load(sys.stdin.read())["metadata"]["name"])')
+  local benchmark_name=$(cat ${1} | python3 -c 'import yaml; import sys; print(yaml.safe_load(sys.stdin.read())["metadata"]["name"])')
   gen_metadata ${benchmark_name} ${start_date} $(date +%s%3N)
   return ${rc}
 }
